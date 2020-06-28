@@ -42,8 +42,8 @@
 <?php
     if(isset($_POST['send'])){
         $message = $_POST['message'];
-        $sql = "INSERT INTO `chat` (`id`, `userid`, `adminid`, `message`, `sender`) VALUES (NULL, '${uid}', '1', '${message}', 's')";
+        $sql = "INSERT INTO `chat` (`id`, `userid`, `adminid`, `message`, `sender`) VALUES (NULL, '${uid}', '1', '${message}', 'a')";
         $con->query($sql);
-        header('location:./chat.php');
+        header('location:./chat.php?uid='.$uid);
     }
 ?>
