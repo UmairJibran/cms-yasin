@@ -21,13 +21,18 @@
             $rows=$result->num_rows;
             if($rows>=1){
                 while($data=$result->fetch_assoc()){
-                    
+                    $message = $data['message'];
+                    $sender = $data['sender'];
+                    $myId;
+                    echo"<br><br>";
+                    if($sender == 's')
+                        echo "<p style='float:right'>${message}</p>";
+                    else
+                        echo "<p style='float:left'>${message}</p>";
                 }
             }
-            echo"<br><br>";
         ?>
-        <p style='float:right'>sss</p>
-        <p style='float:left'>sss</p>
+        <br><br>
         <input type="text" name="message" class='form-control'>
         <input type="submit" name='send' value="Send" class='btn btn-warning'>
     </form>
@@ -37,7 +42,8 @@
 <?php
     if(isset($_POST['send'])){
         $message = $_POST['message'];
-        $sql = "INSERT INTO `chat` (`id`, `userid`, `adminid`, `message`) VALUES (NULL, '${uid}', '1', '${message}')";
+        $sql = "INSERT INTO `chat` (`id`, `userid`, `adminid`, `message`, `sender`) VALUES (NULL, '${uid}', '1', '${message}', 's')";
         $con->query($sql);
+        header('location:./chat.php');
     }
 ?>
