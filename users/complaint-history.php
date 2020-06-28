@@ -48,6 +48,7 @@ else{
                                   <th>Reg Date</th>
                               
                                   <th >Status</th>
+                                  <th >Chat</th>
                                  
                                   
                               </tr>
@@ -60,9 +61,6 @@ while($row=mysqli_fetch_array($query))
                               <tr>
                                   <td align="center"><?php echo htmlentities($row['complaintNumber']);?></td>
                                   <td align="center"><?php echo htmlentities($row['regDate']);?></td>
-                            
-
-                                 ?></td>
                                   <td align="center"><?php 
                                     $status=$row['status'];
                                     if($status=="" or $status=="NULL")
@@ -77,6 +75,10 @@ if($status=="closed") {
 <button type="button" class="btn btn-success">Approved</button>
 <?php } ?>
                                  
+                                </td>
+                                <td align='center'>
+                                    <a href="chat.php"></a>
+                                </td>
                                 </tr>
                               <?php } ?>
                             
