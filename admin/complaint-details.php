@@ -137,9 +137,12 @@ while($rw=mysqli_fetch_array($ret))
 <a href="javascript:void(0);" onClick="popUpWindow('http://localhost/cms/admin/updatecomplaint.php?cid=<?php echo htmlentities($row['complaintNumber']);?>');" title="Update order">
 											 <button type="button" class="btn btn-primary">Take Action</button></td>
 											</a><?php } ?></td>
-											<td colspan="4"> 
+											<td colspan="3"> 
 											<a href="javascript:void(0);" onClick="popUpWindow('http://localhost/cms/admin/userprofile.php?uid=<?php echo htmlentities($row['userId']);?>');" title="Update order">
 											 <button type="button" class="btn btn-primary">View User Detials</button></a></td>
+											 <td colspan="1"> 
+											<a href="chat.php?uid=<?php echo htmlentities($row['userId']);?>" title="Update order">
+											 <button type="button" class="btn btn-primary">Chat</button></a></td>
 											
 										</tr>
 										<?php  } ?>
